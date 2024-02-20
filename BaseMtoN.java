@@ -10,7 +10,7 @@ public class BaseMtoN{
         System.out.print("\nI want to convert to base-");
         final int N = input.nextInt();
         String num2 = Converter(num1, M, N);
-        if (num2.compareTo("This number is not in the given base or base is greater than 10") != 0){
+        if (num2.compareTo("This number is not in the given base, base is greater than 10, or base is less than 1") != 0){
         System.out.printf("\nYou entered %d in base%d, and it has now been converted to %s in base%d", num1, M, num2, N);
         } else {
             System.out.println(num2);
@@ -20,7 +20,7 @@ public class BaseMtoN{
     private static String Converter(int num1, final int M, final int N){
         boolean convertable = Checker(num1, M);
         if (convertable == false){
-            return "This number is not in the given base or base is greater than 10";
+            return "This number is not in the given base, base is greater than 10, or base is less than 1";
         }
         //Convert to base 10
         int base10 = 0;
@@ -46,7 +46,7 @@ public class BaseMtoN{
     private static boolean Checker(int num1, final int M){
         if (M == 10) {
             return true;
-        } else if (M > 10){
+        } else if (M > 10 || M < 1){
             return false;
         }
         String num1String = Integer.toString(num1);
